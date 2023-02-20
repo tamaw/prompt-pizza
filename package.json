@@ -1,0 +1,19 @@
+{
+  "name": "pizza-gpt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tama Waddell",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.34.0"
+  },
+  "dependencies": {
+    "openai": "^3.1.0",
+    "prompt-sync": "^4.2.0",
+    "ws": "^8.12.1"
+  }
+}

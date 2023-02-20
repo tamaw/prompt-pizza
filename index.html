@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chat</title>
+  <style>
+    /* Basic styles for the chat messages */
+    .message {
+      margin: 10px 0;
+    }
+    .message img {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    .message .author {
+      font-weight: bold;
+    }
+    .message .timestamp {
+      color: #aaa;
+      font-size: 12px;
+    }
+    .message .content {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+    .message-right .content {
+      text-align: right;
+    }
+
+    /* Styles for the chat container */
+    #chat {
+      width: 600px;
+      height: 500px;
+      border: 1px solid #ccc;
+      overflow-y: scroll;
+      padding: 10px;
+    }
+
+    /* Styles for the input form */
+    form {
+      margin-top: 10px;
+    }
+    form input[type=text] {
+      width: 550px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form input[type=submit] {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat"></div>
+  <form>
+    <input type="text" name="message" placeholder="Type your message here">
+    <input type="submit" value="Send">
+  </form>
+  <script src="app.js"></script>
+</body>
+</html>
