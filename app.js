@@ -21,8 +21,8 @@ socket.addEventListener('message', (event) => {
       <div class="content">${message.content}</div>
     </div>
   `;
-  chat.scrollTop = chat.scrollHeight;
   chat.insertAdjacentHTML('beforeend', html);
+  chat.scrollTop = chat.scrollHeight;
 });
 
 socket.addEventListener('close', (event) => {
@@ -38,7 +38,7 @@ form.addEventListener('submit', (event) => {
   const input = event.target.elements.message;
   const message = {
     author: 'Me',
-    image: 'myprofile.png', // Replace with the URL or file path for your profile image
+    image: '',
     content: input.value,
     timestamp: new Date().toISOString()
   };
