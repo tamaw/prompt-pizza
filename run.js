@@ -40,8 +40,8 @@ class Actor {
    }
 
    ask = async (text) => {
-    if(text != undefined)
-      this.conversation += text + '\n';
+    if(text != undefined || text != null || text != '')
+      this.conversation += '\n' + text + '\n';
     console.log(this.conversation)
 
     var response = await openai.createCompletion({
@@ -53,6 +53,7 @@ class Actor {
       frequency_penalty: 0,
       presence_penalty: 0
     })
+    this.conversation += response.data.choices[0].text
     console.log(response.data)
 
     let message = {
@@ -75,7 +76,7 @@ const openai = new OpenAIApi(configuration);
 const server = new WebSocket.Server({ port: 3000 })
 
 let cashier = new Actor('cashier')
-let cook = new Actor('cook')
+let cook = new Actor('chef')
 
 server.on('connection', async (socket) => {
   console.log('WebSocket connection established');
