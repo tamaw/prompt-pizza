@@ -75,6 +75,7 @@ const openai = new OpenAIApi(configuration);
 const server = new WebSocket.Server({ port: 3000 })
 
 let cashier = new Actor('cashier')
+let cook = new Actor('cook')
 
 server.on('connection', async (socket) => {
   console.log('WebSocket connection established');
@@ -96,7 +97,12 @@ server.on('connection', async (socket) => {
       }
     });
 
-    let message = await cashier.ask(JSON.parse(data).content)
+    var message;
+    if(JSON.parse(data).content == 'Cook:') {
+      message = await cook.ask(JSON.parse(data).content)
+    }
+
+    message = await cashier.ask(JSON.parse(data).content)
 
     // send new message
     server.clients.forEach((client) => {
